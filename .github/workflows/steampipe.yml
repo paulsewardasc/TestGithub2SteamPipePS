@@ -21,7 +21,7 @@ jobs:
         continue-on-error: true
         run: |
            steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" --output=json > steampipe-output-aws-results.json
-      - name: "Commit the file to GitHub"
+      - name: "Commit the file to GitHub "
         id: push-to-gh
         run: |
           git config user.name github-actions
