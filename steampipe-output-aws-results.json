@@ -1,0 +1,23 @@
+{
+ "columns": [
+  {
+   "name": "name",
+   "data_type": "text"
+  },
+  {
+   "name": "args",
+   "data_type": "text"
+  }
+ ],
+ "rows": [
+  {
+   "args": "{\n    \"bucket\": \"${aws_s3_bucket.my_bucket_1.id}\"\n}",
+   "name": "public_access_bucket_1"
+  },
+  {
+   "args": "{\n    \"bucket\": \"test-project-foo-bucket-02\"\n}",
+   "name": "my_bucket_1"
+  }
+ ]
+}
+
