@@ -20,4 +20,5 @@ jobs:
         id: steampipe-query
         continue-on-error: true
         run: |
-           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" > output/aws/instances.csv
+           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" > results.sarif
+
