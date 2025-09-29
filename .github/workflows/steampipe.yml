@@ -20,14 +20,14 @@ jobs:
         id: steampipe-query
         continue-on-error: true
         run: |
-           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" --output-json > results.json
-      - name: Configure Git
+           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" --output-json > outpit/steampipe/aws/results.json
+      - name: "Commit the file to GitHub"
+        id: push-to-gh
+        working-directory: steampipe/output/aws
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push changes
-        run: |
-          git add -A
-          git commit -m "Add generated file"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add results.json
+          git commit -m "Add Steampipe Benchmark Results"
           git push
+
