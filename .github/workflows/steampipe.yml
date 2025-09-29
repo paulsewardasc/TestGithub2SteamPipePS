@@ -8,7 +8,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: turbot/steampipe-action-setup@v1
       - name: Steampipe Setup
         uses: turbot/steampipe-action-setup@v1
         with:
