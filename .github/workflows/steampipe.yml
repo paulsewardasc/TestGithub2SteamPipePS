@@ -16,3 +16,8 @@ jobs:
               plugin = "terraform"
               paths = [ "./*.tf"]
             }
+      - name: "Run Steampipe query"
+        id: steampipe-query
+        continue-on-error: true
+        run: |
+           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" > output/aws/instances.csv
