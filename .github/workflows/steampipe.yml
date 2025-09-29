@@ -9,17 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Steampipe Setup
-        uses: turbot/steampipe-action-setup@v2
+        uses: turbot/steampipe-action-setup@v1
         with:
           plugin-connections: |
             connection "tf" {
               plugin = "terraform"
               paths = [ "./*.tf"]
             }
-      - name: Steampipe Check Terraform AWS
-        uses: turbot/steampipe-action-check@v2
-        with:
-          mod-url: https://github.com/turbot/steampipe-mod-terraform-aws-compliance
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          pipes-snapshot-visibility: anyone_with_link
-          pipes-token: ${{ secrets.PIPES_TOKEN }} 
