@@ -20,7 +20,7 @@ jobs:
         id: steampipe-query
         continue-on-error: true
         run: |
-           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" --output-json > outpit/steampipe/aws/results.json
+           steampipe query "select name, jsonb_pretty(arguments) as args from terraform_resource;" --output-json > steampipe/output/aws/results.json
       - name: "Commit the file to GitHub"
         id: push-to-gh
         working-directory: steampipe/output/aws
